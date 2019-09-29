@@ -18,7 +18,13 @@ $ es GET _cat/nodes?pretty
 10.0.1.200 10.0.1.200 15 93 0.00 d m services-01
 ```
 
-This shows us that we have three nodes that are running.  We can see that service is 
+This shows us that we have three nodes that are running.  Here's a diagram on how ElasticSearch is distributed.  I stole this from the LinuxAcademy tutorial that I'm going through.
+
+https://raw.githubusercontent.com/zelaznik/es_notes/master/elastic_diagram.gif?token=ACMKJQP6YHNKHTBZZKTK6WS5TI2SA
+
+
+
+- 
 
 # Elastic Search Terms Defined:
   ## Node:
