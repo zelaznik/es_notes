@@ -18,7 +18,7 @@ $ es GET _cat/nodes?pretty
 10.0.1.200 10.0.1.200 15 93 0.00 d m services-01
 ```
 
-This shows us that we have three nodes that are running.
+This shows us that we have three nodes that are running.  We can see that service is 
 
 # Elastic Search Terms Defined:
   ## Node:
@@ -35,4 +35,4 @@ This shows us that we have three nodes that are running.
 - Iora Limits the IP addresses from which the ES clusters can be accessed?
 
 # Goal: BE ABLE TO GET SAME RESULTS FROM ElasticSearch as from staging app
-- TBA
+- Let's look at on
