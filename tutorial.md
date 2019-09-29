@@ -34,5 +34,18 @@ This shows us that we have three nodes that are running.  We can see that servic
 - A plain HTTP endpoint can be accessed by anybody.
 - Iora Limits the IP addresses from which the ES clusters can be accessed?
 
-# Goal: BE ABLE TO GET SAME RESULTS FROM ElasticSearch as from staging app
-- Let's look at on
+# Query Terms:
+ - must: (exact match, equivalent to AND)
+ - must_not: (exact NOT match)
+ - should: (equivalent to OR)
+     - the default for "SHOULD" is to match one or more terms.
+
+# Goal:
+  ## BE ABLE TO GET SAME RESULTS FROM ElasticSearch as from staging app
+      - Let's look the tasks page in staging.
+      - Here's how to find the elastic-search queries in staging:
+         ```
+         ssh deployer@staging.icisapp.com
+         cd apps/icis/staging/current
+         cat log/staging.log | egrep "curl -X GET 'http://localhost:9200"
+         ```
