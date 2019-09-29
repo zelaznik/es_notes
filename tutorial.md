@@ -8,6 +8,7 @@ function es() { curl -X $1 "$ELASTICSEARCH_URL/$2" -k 2>/dev/null; }
 ```
 
 - Elastic Search uses a REST-API.  This `es` function is purely to save ourselves a lot of typing.
+- The `-k` flag is because we're using self signed certificates.
 - Let's type this into the search engine:
 
 ```
@@ -28,3 +29,10 @@ This shows us that we have three nodes that are running.
     - Description TBA
   ## Index:
     - Description TBA
+
+# Security Issues With ElasticSearch:
+- A plain HTTP endpoint can be accessed by anybody.
+- Iora Limits the IP addresses from which the ES clusters can be accessed?
+
+# Goal: BE ABLE TO GET SAME RESULTS FROM ElasticSearch as from staging app
+- TBA
