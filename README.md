@@ -9,3 +9,5 @@
 - Staging and pre-production use 1 node.
 - Production uses 3 nodes.
 
+# Impending Breaking Changes:
+- "string" type deprecated:  https://www.elastic.co/blog/strings-are-dead-long-live-strings
