@@ -86,7 +86,7 @@ Notice that we have a `yellow` status locally and a `green` status on staging.
   ## RED:
     - We cannot access all of our data
 
-- 
+  Click [here](ElasticsearchIoraStaging.pdf) for an interactive guide to Iora index health
 
 # Elastic Search Terms Defined:
   ## Node:
