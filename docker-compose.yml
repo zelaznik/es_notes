@@ -1,0 +1,22 @@
+version: '3'
+services:
+  elasticsearch_chirp_ed:
+    image: elasticsearch:5.1.1-alpine
+    environment:
+      ES_JAVA_OPTS: "-Xms256m -Xmx256m"
+    restart: always
+    ports:
+      - "9211:9200"
+      - "9311:9300"
+    volumes:
+      - elasticsearch-chirp-ed:/usr/share/elasticsearch/data
+      - elasticsearch-chirp-ed-logs:/usr/share/elasticsearch/logs
+  kibana_chirp_ed:
+    image: kibana:5.1.1
+    environment:
+      ELASTICSEARCH_URL: http://elasticsearch_chirp_ed:9200
+    ports:
+      - "5611:5601"
+volumes:
+  elasticsearch-chirp-ed:
+  elasticsearch-chirp-ed-logs:
