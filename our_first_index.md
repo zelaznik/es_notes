@@ -80,7 +80,11 @@
   GET index-1/_search
   ```
 
-  ```
+  <details>
+  <summary>The results should look like this:</summary>
+  <p>
+
+  ```json
   {
     "took": 1,
     "timed_out": false,
@@ -127,6 +131,8 @@
     }
   }
   ```
+  </p>
+  </details>
 
 ```
 GET index-1/_search
