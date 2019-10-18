@@ -43,6 +43,8 @@
   </p>
   </details>
 
+## Getting Data From The Index:
+
 - Now we can access this document directly via its ID.  This is the equivalent of the *find* method in ActiveRecord
 
   ```
@@ -58,10 +60,10 @@
     "_index": "index-1",
     "_type": "doc",
     "_id": "AW3eJDcBwmLbVN91LFF7",
-    "_version": 2,
+    "_version": 1,
     "found": true,
     "_source": {
-      "first_name": "Andy",
+      "first_name": "Andrew",
       "last_name": "Zimmerman"
     }
   }
