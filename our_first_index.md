@@ -43,8 +43,6 @@
   </p>
   </details>
 
-### Specifying the ID of the document:
-
 - In the example above we let elasticsearch pick the ID for us.  We can also choose our own unique identifier.  We do this in Chirp, 
 
   ```
@@ -54,6 +52,8 @@
     "last_name": "Euler"
   }
   ```
+
+## Getting Data From The Index:
 
 - Now we can fetch the document by its ID.
 
@@ -81,35 +81,38 @@
   </p>
   </details>
 
-## Getting Data From The Index:
+## Deleting Data From The Index
 
-- Now we can access this document directly via its ID.  This is the equivalent of the *find* method in ActiveRecord
+- You probably guessed from the REST-API CRUD pattern that we'd be sending a DELETE request to the same endpoint.
 
   ```
-  GET index-1/doc/AW3eJDcBwmLbVN91LFF7
+  DELETE index-1/doc/2718
   ```
 
-  <details>
-  <summary>And we get the document (below) returned back to us.</summary>
+  <details><summary>In the response body (below), we're told that the document was found and successfully deleted.</summary>
   <p>
 
-  ```json
+  ```json  
   {
+    "found": true,
     "_index": "index-1",
     "_type": "doc",
-    "_id": "AW3eJDcBwmLbVN91LFF7",
-    "_version": 1,
-    "found": true,
-    "_source": {
-      "first_name": "Andrew",
-      "last_name": "Zimmerman"
+    "_id": "2718",
+    "_version": 2,
+    "result": "deleted",
+    "_shards": {
+      "total": 2,
+      "successful": 1,
+      "failed": 0
     }
   }
   ```
   </p>
   </details>
 
-- Notice that "index-1" didn't even exist until now.  Now if we search for the index, we'll find the document:
+- Notice that "index-1" didn't even exist before this exercise.  Now if we search for the index, we'll find the document:
+
+
 
   ```
   GET index-1/_search
