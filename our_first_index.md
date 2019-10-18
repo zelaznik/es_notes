@@ -1,19 +1,32 @@
-# Building a "Hello, world" index in Elasticsearch
+# Our First Elasticsearch Index
 
-- The explanations will be filled in at a later time.
-- In the meantime, here is a list of instructions to type into the kibana console.
+## Main takeaways from this exercise.
+  - Elasticserch is dynamic.
+  - Indices and field types are by default computed just in time
+
+## Warning:
+  - PLEASE USE THE KIBANA CONSOLE WHEN FOLLOWING ALONG.  If you use *curl* in your bash terminal you might accidentally use the wrong port number and connect to the wrong Elasticsearch cluster.  For this Chirp-Ed session, elasticsearch lives on port *9211*.  As long as you connect to kibana on http://localhost:5611, you'll be fine.
+
+## Steps Below:
+
+- In the Kibana Conole, let's execute the following command:
+
+  ```
+  POST index-1/doc?refresh=true
+  {
+    "first_name": "Andrew",
+    "last_name": "Zimmerman"
+  }
+  ```
+
+- Notice that "index-1" didn't even exist until now.  Now if we search for the index, we'll find the document:
+
+  ```
+  GET index-1/_search
+  ```
+
 
 ```
-DELETE index-1
-
-POST index-1/doc?refresh=true
-{
-  "first_name": "Andrew",
-  "last_name": "Zimmerman"
-}
-
-GET index-1/_search
-
 POST index-1/doc?refresh=true
 {
   "first_name": "Becky",
