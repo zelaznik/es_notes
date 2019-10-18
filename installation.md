@@ -70,7 +70,7 @@ $ curl -s localhost:9211
 }
 ```
     
-### Open Kibana Locally
- - Open [localhost:5611](http://localhost:5611/app/kibana#/management/kibana/index/?_g=()) in your browser
-
-
+### Check Kibana is working
+ - Open [http://localhost:5611/app/kibana#/dev_tools/console?_g=()](http://localhost:5611/app/kibana#/dev_tools/console?_g=%28%29) in your browser
+ - Hit the green "play" triangle.  The output should look like this
+![Kibana Blank Console](images/kibana_blank_console.gif)
