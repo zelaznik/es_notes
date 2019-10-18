@@ -130,6 +130,8 @@
   </p>
   </details>
 
+## Querying The Results
+
 ```
 GET index-1/_search
 {
