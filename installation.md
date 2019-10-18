@@ -73,6 +73,7 @@ $ curl -s localhost:9211
 ### Check Kibana is working
  - Open [http://localhost:5611/app/kibana#/dev_tools/console?_g=()](http://localhost:5611/app/kibana#/dev_tools/console?_g=%28%29) in your browser
  - Hit the green "play" triangle.  The output should look like this
+
 ![Kibana Blank Console](images/kibana_blank_console.gif)
 
 ### Seed Elasticsearch With Chirp Development Data
@@ -98,4 +99,5 @@ $ curl -s localhost:9211
     ```
 
    - Now let's check kibana again, click on the green triangle, and we should see the following
+
     ![all the new indices are listed in tabular form](images/kibana_seeded_data.gif)
