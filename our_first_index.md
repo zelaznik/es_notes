@@ -144,8 +144,8 @@
   </p>
   </details>
 
-- The *_version* attribute has been incremented to "2".  Documents are immutable in elasticsearch.  If you perform an update, you delete version *x* of a document and replace it with version *x+1*.
-- We only updated the *first_name* field.  All the other fields remain intact in this new version of the document.
+- The *_version* attribute has been incremented to "2".  Documents are immutable in elasticsearch.  If you perform an update, you delete version __x__ of a document and replace it with version __x+1__.
+- We only updated the __first_name__ field.  All the other fields remain intact in this new version of the document.
 
 - Let's add two more items to the index and then search.
 
