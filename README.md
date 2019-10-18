@@ -8,7 +8,7 @@
 # Goals of Tutorial
 - Become familiar with Rest-API and query patterns
 - Be able to debug Elasticsearch in Chirp
-
+- Implement an real-world feature request in the Chirp backlog
 
 # Table Of Contents
 
