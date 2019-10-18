@@ -43,6 +43,32 @@
   </p>
   </details>
 
+- Now we can access this document directly via its ID.  This is the equivalent of the *find* method in ActiveRecord
+
+  ```
+  GET index-1/doc/AW3eJDcBwmLbVN91LFF7
+  ```
+
+  <details>
+  <summary>And we get the document (below) returned back to us.</summary>
+  <p>
+
+  ```json
+  {
+    "_index": "index-1",
+    "_type": "doc",
+    "_id": "AW3eJDcBwmLbVN91LFF7",
+    "_version": 2,
+    "found": true,
+    "_source": {
+      "first_name": "Andy",
+      "last_name": "Zimmerman"
+    }
+  }
+  ```
+  </p>
+  </details>
+
 - Notice that "index-1" didn't even exist until now.  Now if we search for the index, we'll find the document:
 
   ```
@@ -81,6 +107,21 @@
   ```
   </p>
   </details>
+
+
+## Updating Data To The Index:
+
+- In the Kibana Conole, let's execute the following command:
+
+  ```
+  POST index-1/doc/AW3dn-eVzYJjTv60xAic/_update?pretty
+  {
+    "doc": {
+      "first_name": "Andy"
+    }
+  }
+  ```
+
 
 - Let's add two more items to the index and then search.
 
@@ -153,20 +194,6 @@
   ```
   </p>
   </details>
-
-## Updating Data To The Index:
-
-- In the Kibana Conole, let's execute the following command:
-
-  ```
-  POST index-1/doc?refresh=true
-  {
-    "first_name": "Andrew",
-    "last_name": "Zimmerman"
-  }
-  ```
-
-
 
 ## Querying The Results
 
