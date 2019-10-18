@@ -116,7 +116,7 @@
 - In the Kibana Conole, let's execute the following command:
 
   ```
-  POST index-1/doc/AW3dn-eVzYJjTv60xAic/_update?pretty
+  POST index-1/doc/AW3eJDcBwmLbVN91LFF7/_update?pretty
   {
     "doc": {
       "first_name": "Andy"
@@ -124,6 +124,28 @@
   }
   ```
 
+  <details>
+  <summary>Now let's take another look at our document returned to us:</summary>
+  <p>
+
+    ```json
+    {
+      "_index": "index-1",
+      "_type": "doc",
+      "_id": "AW3eJDcBwmLbVN91LFF7",
+      "_version": 2,
+      "found": true,
+      "_source": {
+        "first_name": "Andy",
+        "last_name": "Zimmerman"
+      }
+    }
+    ```
+  </p>
+  </details>
+
+- The *_version* attribute has been incremented to "2".  Documents are immutable in elasticsearch.  If you perform an update, you delete version *x* of a document and replace it with version *x+1*.
+- We only updated the *first_name* field.  All the other fields remain intact in this new version of the document.
 
 - Let's add two more items to the index and then search.
 
