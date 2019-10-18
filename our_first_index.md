@@ -43,6 +43,44 @@
   </p>
   </details>
 
+### Specifying the ID of the document:
+
+- In the example above we let elasticsearch pick the ID for us.  We can also choose our own unique identifier.  We do this in Chirp, 
+
+  ```
+  PUT index-1/doc/2718
+  {
+    "first_name": "Leonhard",
+    "last_name": "Euler"
+  }
+  ```
+
+- Now we can fetch the document by its ID.
+
+  ```
+  GET index-1/doc/2718
+  ```
+
+  <details><summary>response (below)</summary>
+  <p>
+
+  ```json
+  {
+    "_index": "index-1",
+    "_type": "doc",
+    "_id": "2718",
+    "_version": 1,
+    "found": true,
+    "_source": {
+      "first_name": "Leonhard",
+      "last_name": "Euler"
+    }
+  }
+  ```
+
+  </p>
+  </details>
+
 ## Getting Data From The Index:
 
 - Now we can access this document directly via its ID.  This is the equivalent of the *find* method in ActiveRecord
@@ -218,6 +256,9 @@
   ```
   </p>
   </details>
+
+## Deleting Data
+
 
 ## Querying The Results
 
