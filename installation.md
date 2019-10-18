@@ -74,3 +74,24 @@ $ curl -s localhost:9211
  - Open [http://localhost:5611/app/kibana#/dev_tools/console?_g=()](http://localhost:5611/app/kibana#/dev_tools/console?_g=%28%29) in your browser
  - Hit the green "play" triangle.  The output should look like this
 ![Kibana Blank Console](images/kibana_blank_console.gif)
+
+### Seed Elasticsearch With Chirp Development Data
+  - Switch to the chirp directory
+  - Run a series of rake tasks.
+  - MAKE SURE TO SET THE ENVIRONMENT VARIABLES TO POINT TO OUR VERSION OF ELASTIC
+  - This process took me start to finish 2 minutes and 35 seconds
+
+```sh
+ELASTICSEARCH_URL=http://localhost:9211 bin/rake es:index_tasks es:index_patients es:index_notes es:index_admissions es:index_measurements
+```
+  - Here's a more human readable version of the comands:
+
+```sh
+~/src/icisstaff(master)
+$ ELASTICSEARCH_URL=http://localhost:9211 bin/rake \
+> es:index_tasks \
+> es:index_patients \
+> es:index_notes \
+> es:index_admissions \
+> es:index_measurements
+```
