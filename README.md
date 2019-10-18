@@ -13,3 +13,4 @@
 # Table Of Contents
 
 - [Installation Guide](installation.md)
+- [Learning Resources](resources.md)
