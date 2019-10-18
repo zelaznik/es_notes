@@ -7,7 +7,7 @@
 ## Warning:
   - PLEASE USE THE KIBANA CONSOLE WHEN FOLLOWING ALONG.  If you use *curl* in your bash terminal you might accidentally use the wrong port number and connect to the wrong Elasticsearch cluster.  For this Chirp-Ed session, elasticsearch lives on port *9211*.  As long as you connect to kibana on http://localhost:5611, you'll be fine.
 
-## Steps Below:
+## Add Data To The Index:
 
 - In the Kibana Conole, let's execute the following command:
 
