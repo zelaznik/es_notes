@@ -45,7 +45,7 @@
   {
     "query": {
       "query_string": {
-        "query": "Andrew Zimmerman"
+        "query": "Zimmerman Andrew"
       }
     }
   }
