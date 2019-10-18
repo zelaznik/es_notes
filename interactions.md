@@ -39,8 +39,8 @@
 
   - Kibana is a much cleaner way to work.  I recommend it.  The payload is placed directly underneath the URL.  Each node of the JSON requests and responses can be collapsed and expanded.  Far more pleasing to work with than the bash console.
 
-  ![pass payload into kibana, see results on the right of screen](images/use_kibana_for_queries.gif)
+    ![pass payload into kibana, see results on the right of screen](images/use_kibana_for_queries.gif)
 
   - It also helps you autocomplete the fields
 
-  ![_cat indices autocomplete](images/kibana-autocomplete-1.gif)
+    ![_cat indices autocomplete](images/kibana-autocomplete-1.gif)
