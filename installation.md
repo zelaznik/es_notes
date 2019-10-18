@@ -81,17 +81,21 @@ $ curl -s localhost:9211
   - MAKE SURE TO SET THE ENVIRONMENT VARIABLES TO POINT TO OUR VERSION OF ELASTIC
   - This process took me start to finish 2 minutes and 35 seconds
 
-```sh
-ELASTICSEARCH_URL=http://localhost:9211 bin/rake es:index_tasks es:index_patients es:index_notes es:index_admissions es:index_measurements
-```
-  - Here's a more human readable version of the comands:
+    ```sh
+    ELASTICSEARCH_URL=http://localhost:9211 bin/rake es:index_tasks es:index_patients es:index_notes es:index_admissions es:index_measurements
+    ```
 
-```sh
-~/src/icisstaff(master)
-$ ELASTICSEARCH_URL=http://localhost:9211 bin/rake \
-> es:index_tasks \
-> es:index_patients \
-> es:index_notes \
-> es:index_admissions \
-> es:index_measurements
-```
+  - Here's a more human readable version of the same comand:
+
+    ```sh
+    ~/src/icisstaff(master)
+    $ ELASTICSEARCH_URL=http://localhost:9211 bin/rake \
+    > es:index_tasks \
+    > es:index_patients \
+    > es:index_notes \
+    > es:index_admissions \
+    > es:index_measurements
+    ```
+
+   - Now let's check kibana again, click on the green triangle, and we should see the following
+    ![all the new indices are listed in tabular form](images/kibana_seeded_data.gif)
