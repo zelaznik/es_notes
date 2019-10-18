@@ -19,6 +19,30 @@
   }
   ```
 
+  <details><summary>Notice that the response body (below) contains the id of the record</summary>
+  <p>
+
+  ```json
+  {
+    "_index": "index-1",
+    "_type": "doc",
+    "_id": "AW3eJDcBwmLbVN91LFF7",
+    "_version": 1,
+    "result": "created",
+    "forced_refresh": true,
+    "_shards": {
+      "total": 2,
+      "successful": 1,
+      "failed": 0
+    },
+    "created": true
+  }
+
+  ```
+
+  </p>
+  </details>
+
 - Notice that "index-1" didn't even exist until now.  Now if we search for the index, we'll find the document:
 
   ```
@@ -129,6 +153,20 @@
   ```
   </p>
   </details>
+
+## Updating Data To The Index:
+
+- In the Kibana Conole, let's execute the following command:
+
+  ```
+  POST index-1/doc?refresh=true
+  {
+    "first_name": "Andrew",
+    "last_name": "Zimmerman"
+  }
+  ```
+
+
 
 ## Querying The Results
 
