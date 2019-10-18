@@ -100,4 +100,4 @@ $ curl -s localhost:9211
 
    - Now let's check kibana again, click on the green triangle, and we should see the following
 
-    ![all the new indices are listed in tabular form](images/kibana_seeded_data.gif)
+![all the new indices are listed in tabular form](images/kibana_seeded_data.gif)
