@@ -24,6 +24,7 @@ Resolving deltas: 100% (18/18), done.
 
  
 ```sh
+$ cd ~/src/es_notes/
 ~/src/es_notes(master)
 $ docker-compose up -d
 Creating network "es_notes_default" with the default driver
