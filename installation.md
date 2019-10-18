@@ -99,6 +99,49 @@ $ curl -s localhost:9211
     > es:index_measurements
     ```
 
-   - Now let's check kibana again, click on the green triangle, and we should see the following
+   - Now let's check kibana again.  Type the following command, if it's not already on your screen, and then hit the green triangle to the right:
+
+   ```
+   GET _cat/indices?v
+   ```
 
 ![all the new indices are listed in tabular form](images/kibana_seeded_data.gif)
+
+
+# Tearing Down Everything
+
+- To stop both docker and elasticsearch, you can do one of two things.
+
+  - Stop the containers individually
+
+    ```sh
+    ~/src/es_notes(master)
+    $ docker container stop es_notes_elasticsearch_chirp_ed_1
+    es_notes_elasticsearch_chirp_ed_1
+    ~/src/es_notes(master)
+    $ docker container stop es_notes_kibana_chirp_ed_1
+    es_notes_kibana_chirp_ed_1
+    ```
+
+  - Do it all at once with docker-compose
+
+    ```sh
+    ~/src/es_notes(master)
+    $ docker-compose down
+    Stopping es_notes_elasticsearch_chirp_ed_1 ... done
+    Stopping es_notes_kibana_chirp_ed_1        ... done
+    Removing es_notes_elasticsearch_chirp_ed_1 ... done
+    Removing es_notes_kibana_chirp_ed_1        ... done
+    Removing network es_notes_default
+    ```
+
+  - If you want the wipe out the data you've persisted to elasticsearch, run these commands.
+
+    ```sh
+    ~/src/es_notes(master)
+    $ docker volume rm es_notes_elasticsearch-chirp-ed
+    es_notes_elasticsearch-chirp-ed
+    ~/src/es_notes(master)
+    $ docker volume rm es_notes_elasticsearch-chirp-ed-logs
+    es_notes_elasticsearch-chirp-ed-logs
+    ```
