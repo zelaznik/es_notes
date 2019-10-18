@@ -25,7 +25,10 @@
   GET index-1/_search
   ```
 
-  ```
+  <details><summary>Response Body:</summary>
+  <p>
+
+  ```json  
   {
     "took": 1,
     "timed_out": false,
@@ -52,6 +55,8 @@
     }
   }
   ```
+  </p>
+  </details>
 
   - Let's add two more items to the index and then search.
 
