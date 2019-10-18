@@ -72,6 +72,8 @@
     "first_name": "Conan",
     "last_name": "O'Brien"
   }
+
+  GET index-1/_search
   ```
 
   <details>
