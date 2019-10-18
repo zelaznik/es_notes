@@ -53,23 +53,77 @@
   }
   ```
 
+  - Let's add two more items to the index and then search.
+
+  ```
+  POST index-1/doc?refresh=true
+  {
+    "first_name": "Becky",
+    "last_name": "Young"
+  }
+
+  POST index-1/doc?refresh=true
+  {
+    "first_name": "Conan",
+    "last_name": "O'Brien"
+  }
+  ```
+
+  - The results should looke like this:
+
+  ```
+  GET index-1/_search
+  ```
+
+  ```
+  {
+    "took": 1,
+    "timed_out": false,
+    "_shards": {
+      "total": 5,
+      "successful": 5,
+      "failed": 0
+    },
+    "hits": {
+      "total": 3,
+      "max_score": 1,
+      "hits": [
+        {
+          "_index": "index-1",
+          "_type": "doc",
+          "_id": "AW3drIOLzYJjTv60xAie",
+          "_score": 1,
+          "_source": {
+            "first_name": "Andrew",
+            "last_name": "Zimmerman"
+          }
+        },
+        {
+          "_index": "index-1",
+          "_type": "doc",
+          "_id": "AW3drIQbzYJjTv60xAif",
+          "_score": 1,
+          "_source": {
+            "first_name": "Becky",
+            "last_name": "Young"
+          }
+        },
+        {
+          "_index": "index-1",
+          "_type": "doc",
+          "_id": "AW3drISozYJjTv60xAig",
+          "_score": 1,
+          "_source": {
+            "first_name": "Conan",
+            "last_name": "O'Brien"
+          }
+        }
+      ]
+    }
+  }
+  ```
+
 ```
-POST index-1/doc?refresh=true
-{
-  "first_name": "Becky",
-  "last_name": "Young"
-}
-
-GET index-1/_search
-
-POST index-1/doc?refresh=true
-{
-  "first_name": "Conan",
-  "last_name": "O'Brien"
-}
-
-GET index-1/_search
-
 GET index-1/_search
 {
   "query": {
@@ -78,7 +132,9 @@ GET index-1/_search
     }
   }
 }
+```
 
+```
 GET index-1/_mapping
 
 POST index-1/doc?refresh=true
