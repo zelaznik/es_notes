@@ -1,42 +1,40 @@
-```
-PUT index-2/doc/1?refresh=true
-{
-  "first_name": "Becky",
-  "last_name": "Young"
-}
-```
+# Elasticsearch Query DSL Fundamentals
 
-```
-PUT index-2/doc/2?refresh=true
-{
-  "first_name": "Becky",
-  "last_name": "Zimmerman"
-}
-```
+## Setup
 
-```
-PUT index-2/doc/3?refresh=true
-{
-  "first_name": "Andrew",
-  "last_name": "Young"
-}
-```
+- Before we go any further, let's create a new index __index-2__ and seed some data into it.  All of these commands can be run in bulk in kibana by selecting/highlighting them all and then pressing PLAY.
 
-```
-PUT index-2/doc/4?refresh=true
-{
-  "first_name": "Andrew",
-  "last_name": "Zimmerman"
-}
-```
+  ```
+  PUT index-2/doc/1?refresh=true
+  {
+    "first_name": "Becky",
+    "last_name": "Young"
+  }
 
-```
-PUT index-2/doc/5?refresh=true
-{
-  "first_name": "Conan",
-  "last_name": "O'Brien"
-}
-```
+  PUT index-2/doc/2?refresh=true
+  {
+    "first_name": "Becky",
+    "last_name": "Zimmerman"
+  }
+
+  PUT index-2/doc/3?refresh=true
+  {
+    "first_name": "Andrew",
+    "last_name": "Young"
+  }
+
+  PUT index-2/doc/4?refresh=true
+  {
+    "first_name": "Andrew",
+    "last_name": "Zimmerman"
+  }
+
+  PUT index-2/doc/5?refresh=true
+  {
+    "first_name": "Conan",
+    "last_name": "O'Brien"
+  }
+  ```
 
 ```
 GET index-2/_search
