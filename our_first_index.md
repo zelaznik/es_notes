@@ -25,6 +25,33 @@
   GET index-1/_search
   ```
 
+  ```
+  {
+    "took": 1,
+    "timed_out": false,
+    "_shards": {
+      "total": 5,
+      "successful": 5,
+      "failed": 0
+    },
+    "hits": {
+      "total": 1,
+      "max_score": 1,
+      "hits": [
+        {
+          "_index": "index-1",
+          "_type": "doc",
+          "_id": "AW3dn-eVzYJjTv60xAic",
+          "_score": 1,
+          "_source": {
+            "first_name": "Andrew",
+            "last_name": "Zimmerman"
+          }
+        }
+      ]
+    }
+  }
+  ```
 
 ```
 POST index-1/doc?refresh=true
