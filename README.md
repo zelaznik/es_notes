@@ -12,5 +12,8 @@
 
 # Table Of Contents
 
-- [Installation Guide](installation.md)
-- [Learning Resources](resources.md)
+## Getting Started:
+  - [Installation Guide](installation.md)
+  - [Interacting With Elasticsearch](interactions.md)
+  - [Learning Resources](resources.md)
+
