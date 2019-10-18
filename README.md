@@ -19,3 +19,6 @@
 
 ## Document API's:
   - [Our First Index](our_first_index.md)
+
+## Query API's:
+  - [Basic Query Syntax](query_syntax.md)
