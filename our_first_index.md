@@ -58,7 +58,7 @@
   </p>
   </details>
 
-  - Let's add two more items to the index and then search.
+- Let's add two more items to the index and then search.
 
   ```
   POST index-1/doc?refresh=true
@@ -72,12 +72,6 @@
     "first_name": "Conan",
     "last_name": "O'Brien"
   }
-  ```
-
-  - The results should looke like this:
-
-  ```
-  GET index-1/_search
   ```
 
   <details>
