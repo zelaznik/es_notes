@@ -105,16 +105,53 @@
   </p>
   </details>
 
-```
-GET index-2/_search
-{
-  "query": {
-    "query_string": {
-      "query": "Andrew AND Zimmerman"
+- If we want both words to match, we have to specify the __AND__ operator.
+
+  ```
+  GET index-2/_search
+  {
+    "query": {
+      "query_string": {
+        "query": "Andrew AND Zimmerman"
+      }
     }
   }
-}
-```
+  ```
+
+  <details><summary>Now we get back one single result (below)</summary>
+  <p>
+
+  ```json
+  {
+    "took": 2,
+    "timed_out": false,
+    "_shards": {
+      "total": 5,
+      "successful": 5,
+      "failed": 0
+    },
+    "hits": {
+      "total": 1,
+      "max_score": 0.78549397,
+      "hits": [
+        {
+          "_index": "index-2",
+          "_type": "doc",
+          "_id": "4",
+          "_score": 0.78549397,
+          "_source": {
+            "first_name": "Andrew",
+            "last_name": "Zimmerman"
+          }
+        }
+      ]
+    }
+  }
+  ```
+
+  </p>
+  </details>
+
 
 ```
 GET index-2/_search
