@@ -81,6 +81,72 @@
   </p>
   </details>
 
+## Updating Data To The Index:
+
+- In the Kibana Conole, let's execute the following command:
+
+  ```
+  POST index-1/doc/2718/_update?pretty
+  {
+    "doc": {
+      "last_name": "Shelby"
+    }
+  }
+  ```
+
+  <details>
+  <summary>Now let's take another look at our document returned to us:</summary>
+  <p>
+
+    ```json
+    {
+      "_index": "index-1",
+      "_type": "doc",
+      "_id": "2718",
+      "_version": 2,
+      "found": true,
+      "_source": {
+        "first_name": "Leonhard",
+        "last_name": "Shelby"
+      }
+    }
+    ```
+  </p>
+  </details>
+
+- The *_version* attribute has been incremented to "2".  Documents are immutable in elasticsearch.  If you perform an update, you delete version __x__ of a document and replace it with version __x+1__.
+- We only updated the __last_name__ field.  All the other fields remain intact in this new version of the document.
+
+- This only works with the ___update__ endpoint.  If we use the __PUT__ request, we'll end up overwriting the entire document.  Let's try it:
+
+  ```
+  PUT index-1/doc/2718?pretty
+  {
+    "doc": {
+      "first_name": "Richard"
+    }
+  }
+  ```
+
+  <details>
+  <summary>Now the field "last_name" has disappeared from the response (below)</summary>
+  <p>
+
+    ```json
+    {
+      "_index": "index-1",
+      "_type": "doc",
+      "_id": "2718",
+      "_version": 3,
+      "found": true,
+      "_source": {
+        "first_name": "Richard"
+      }
+    }
+    ```
+  </p>
+  </details>
+
 ## Deleting Data From The Index
 
 - You probably guessed from the REST-API CRUD pattern that we'd be sending a DELETE request to the same endpoint.
@@ -110,207 +176,7 @@
   </p>
   </details>
 
-- Notice that "index-1" didn't even exist before this exercise.  Now if we search for the index, we'll find the document:
+## Key Takeaways
 
-
-
-  ```
-  GET index-1/_search
-  ```
-
-  <details><summary>Response Body:</summary>
-  <p>
-
-  ```json  
-  {
-    "took": 1,
-    "timed_out": false,
-    "_shards": {
-      "total": 5,
-      "successful": 5,
-      "failed": 0
-    },
-    "hits": {
-      "total": 1,
-      "max_score": 1,
-      "hits": [
-        {
-          "_index": "index-1",
-          "_type": "doc",
-          "_id": "AW3dn-eVzYJjTv60xAic",
-          "_score": 1,
-          "_source": {
-            "first_name": "Andrew",
-            "last_name": "Zimmerman"
-          }
-        }
-      ]
-    }
-  }
-  ```
-  </p>
-  </details>
-
-
-## Updating Data To The Index:
-
-- In the Kibana Conole, let's execute the following command:
-
-  ```
-  POST index-1/doc/AW3eJDcBwmLbVN91LFF7/_update?pretty
-  {
-    "doc": {
-      "first_name": "Andy"
-    }
-  }
-  ```
-
-  <details>
-  <summary>Now let's take another look at our document returned to us:</summary>
-  <p>
-
-    ```json
-    {
-      "_index": "index-1",
-      "_type": "doc",
-      "_id": "AW3eJDcBwmLbVN91LFF7",
-      "_version": 2,
-      "found": true,
-      "_source": {
-        "first_name": "Andy",
-        "last_name": "Zimmerman"
-      }
-    }
-    ```
-  </p>
-  </details>
-
-- The *_version* attribute has been incremented to "2".  Documents are immutable in elasticsearch.  If you perform an update, you delete version __x__ of a document and replace it with version __x+1__.
-- We only updated the __first_name__ field.  All the other fields remain intact in this new version of the document.
-
-- Let's add two more items to the index and then search.
-
-  ```
-  POST index-1/doc?refresh=true
-  {
-    "first_name": "Becky",
-    "last_name": "Young"
-  }
-
-  POST index-1/doc?refresh=true
-  {
-    "first_name": "Conan",
-    "last_name": "O'Brien"
-  }
-
-  GET index-1/_search
-  ```
-
-  <details>
-  <summary>The results should look like this:</summary>
-  <p>
-
-  ```json
-  {
-    "took": 1,
-    "timed_out": false,
-    "_shards": {
-      "total": 5,
-      "successful": 5,
-      "failed": 0
-    },
-    "hits": {
-      "total": 3,
-      "max_score": 1,
-      "hits": [
-        {
-          "_index": "index-1",
-          "_type": "doc",
-          "_id": "AW3drIOLzYJjTv60xAie",
-          "_score": 1,
-          "_source": {
-            "first_name": "Andrew",
-            "last_name": "Zimmerman"
-          }
-        },
-        {
-          "_index": "index-1",
-          "_type": "doc",
-          "_id": "AW3drIQbzYJjTv60xAif",
-          "_score": 1,
-          "_source": {
-            "first_name": "Becky",
-            "last_name": "Young"
-          }
-        },
-        {
-          "_index": "index-1",
-          "_type": "doc",
-          "_id": "AW3drISozYJjTv60xAig",
-          "_score": 1,
-          "_source": {
-            "first_name": "Conan",
-            "last_name": "O'Brien"
-          }
-        }
-      ]
-    }
-  }
-  ```
-  </p>
-  </details>
-
-## Deleting Data
-
-
-## Querying The Results
-
-```
-GET index-1/_search
-{
-  "query": {
-    "simple_query_string": {
-      "query": "Andr AND Zimmerman"
-    }
-  }
-}
-```
-
-```
-GET index-1/_mapping
-
-POST index-1/doc?refresh=true
-{
-  "first_name": "John",
-  "last_name": "Doe",
-  "id": "23c5bf4e-2baf-403c-8903-6d6321253d1a"
-}
-
-GET index-1/_mapping
-
-POST index-1/doc?refresh=true
-{
-  "first_name": "Cynthia",
-  "last_name": "Bowman",
-  "id": 3
-}
-
-GET index-1/_search
-
-GET index-1/_mapping/doc
-
-GET index-1/_search
-{
-  "query": {
-    "bool": {
-      "filter": [
-        {
-          "term": {
-            "first_name.keyword": "Cynthia"
-          }
-        }
-      ]
-    }
-  }
-}
-```
+- Notice that "index-1" didn't even exist before this exercise.  It was generated in real time.
+- This is flexible, but it makes elasticsearch vulnerable to typos.  If I misspell the name of the index, elasticsearch will simply create a new index and never return an error to me.
