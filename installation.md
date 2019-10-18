@@ -135,13 +135,13 @@ $ curl -s localhost:9211
     Removing network es_notes_default
     ```
 
-  - If you want the wipe out the data you've persisted to elasticsearch, run these commands.
+- If you want the wipe out the data you've persisted to elasticsearch, run these commands.
 
-    ```sh
-    ~/src/es_notes(master)
-    $ docker volume rm es_notes_elasticsearch-chirp-ed
-    es_notes_elasticsearch-chirp-ed
-    ~/src/es_notes(master)
-    $ docker volume rm es_notes_elasticsearch-chirp-ed-logs
-    es_notes_elasticsearch-chirp-ed-logs
-    ```
+  ```sh
+  ~/src/es_notes(master)
+  $ docker volume rm es_notes_elasticsearch-chirp-ed
+  es_notes_elasticsearch-chirp-ed
+  ~/src/es_notes(master)
+  $ docker volume rm es_notes_elasticsearch-chirp-ed-logs
+  es_notes_elasticsearch-chirp-ed-logs
+  ```
