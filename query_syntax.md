@@ -152,17 +152,9 @@
   </p>
   </details>
 
+## Filter Query
 
-```
-GET index-2/_search
-{
-  "query": {
-    "query_string": {
-      "query": "Zimmerman AND Andrew"
-    }
-  }
-}
-```
+- The filter query is like the "WHERE" clause in a SQL database.  It's like a match query, except that it doesn't affect the search ranking.
 
 ```
 GET index-2/_search
