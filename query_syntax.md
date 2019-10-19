@@ -2,7 +2,11 @@
 
 ## Setup
 
-- Before we go any further, let's create a new index __index-2__ and seed some data into it.  All of these commands can be run in bulk in kibana by selecting/highlighting them all and then pressing PLAY.
+- Before we go any further, let's create a new index __index-2__ and seed some data into it.  
+
+  <details>
+    <summary>All of these commands (below) can be run in bulk in kibana by selecting/highlighting them all and then pressing PLAY.</summary>
+    <p>
 
   ```
   PUT index-2/doc/1?refresh=true
@@ -35,6 +39,8 @@
     "last_name": "O'Brien"
   }
   ```
+  </p>
+  </details>
 
 ## Query Strings
 
