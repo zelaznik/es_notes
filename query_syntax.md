@@ -223,9 +223,9 @@
   </p>
   </details>
 
-  - As an exercise, try removing the `.keyword` and you'll find you get no results back.
+- As an exercise, try removing the `.keyword` and you'll find you get no results back.
 
-  - Filter terms can be aggregated together:
+- Filter terms can be aggregated together:
 
   ```
   GET index-2/_search
@@ -249,7 +249,7 @@
   }
   ```
 
-  - We can also mix query strings and filter contexts:
+- We can also mix query strings and filter contexts:
 
   ```
   GET index-2/_search
@@ -277,7 +277,7 @@
 
 ## Recreating an "OR" query.
 
-- In elasticsearch 5, they got rid of the "OR" query.  They replaced it with the unintuitive "should".
+- In elasticsearch 5, they got rid of the "OR" query.  They replaced it with the unintuitive "should".  This query should get you three results back.  "Becky Zimmerman", "Becky Young", and "Andrew Zimmerman"
 
   ```
   GET index-2/_search
@@ -301,25 +301,31 @@
   }
   ```
 
-```
-GET index-2/_search
-{
-  "query": {
-    "bool": {
-      "should": [
-        {
-          "match": {
-            "first_name": "Becky"
+- If we want more than one term to match, we can change the `minimum_should_match` parameter, as in here.
+
+  ```
+  GET index-2/_search
+  {
+    "query": {
+      "bool": {
+        "should": [
+          {
+            "match": {
+              "first_name": "Becky"
+            }
+          },
+          {
+            "match": {
+              "last_name": "Zimmerman"
+            }
           }
-        },
-        {
-          "match": {
-            "last_name": "Zimmerman"
-          }
-        }
-      ],
-      "minimum_number_should_match": 2
+        ],
+        "minimum_number_should_match": 2
+      }
     }
   }
-}
-```
+  ```
+
+# LIVE CODING EXERCISE
+
+- Go to the tasks, admissions, or patients pages in Chirp staging or development.  Try to build queries in elasticsearch that give you equivalent results.  Time permitting, we'll do that live here in Chirp-Ed.
