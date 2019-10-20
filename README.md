@@ -13,15 +13,15 @@
 # Table Of Contents
 
 ## Getting Started:
-  - [Installation Guide](installation.md)
-  - [Interacting With Elasticsearch](interactions.md)
-  - [Learning Resources](resources.md)
+  - [Installation Guide](getting_started/installation.md)
+  - [Interacting With Elasticsearch](getting_started/interactions.md)
+  - [Learning Resources](getting_started/resources.md)
 
-## Exercises:
-  - [Document Rest API's](our_first_index.md)
-  - [Basic Query DSL Syntax](query_syntax.md)
-  - [Mappings](mappings.md)
-  - [Analyzers/Tokenizers](analyzers.md)
-  
-## Real World Chirp Examples:
+## Basic Exercises:
+  - [Document Rest API's](basic_exercises/our_first_index.md)
+  - [Basic Query DSL Syntax](basic_exercises/query_syntax.md)
+  - [Mappings](basic_exercises/mappings.md)
+  - [Analyzers/Tokenizers](basic_exercises/analyzers.md)
+
+## Real World Example: Ignore Special Characters in Patient Search
   - [Ignore Puncuation In Patient Search](ignore_punctuation_in_patient_search.md)
