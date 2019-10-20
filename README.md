@@ -17,8 +17,6 @@
   - [Interacting With Elasticsearch](interactions.md)
   - [Learning Resources](resources.md)
 
-## Document API's:
-  - [Our First Index](our_first_index.md)
-
-## Query API's:
-  - [Basic Query Syntax](query_syntax.md)
+## Exercises:
+  - [Document Rest API's](our_first_index.md)
+  - [Basic Query DSL Syntax](query_syntax.md)
