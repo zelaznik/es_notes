@@ -26,7 +26,7 @@
     }
     ```
 
-## Update the code in Rails to point to the alias
+### Update the code in Rails to point to the alias
 
   - Open the code on your development machine and apply this change:
 
