@@ -241,3 +241,5 @@
       }
     end
     ```
+
+    We want to add the "match_phrase" queries when the user is typing content into the search bar.  At the same time we don't want to lose any of the old functionality that the user expects.  The only option is to use a "should" construction, which is the same as an "OR" construction.  The old query_string is wrapped in a `{ bool: { should: { ... } }` object, and we add the `match_phrase` query for first and last names.
