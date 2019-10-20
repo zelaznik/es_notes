@@ -1,6 +1,8 @@
 # Interacting with Elasticsearch
-
-- Two main ways, *curl* and *kibana*
+- I recommend three ways to interact with elasticsearch:
+  - [bash console](#bash-console-curl-function)
+  - [kibana](#kibana-environment)
+  - [Rails console](#interacting-via-the-rails-console)
 
 ## Bash Console CURL function
   - The payload can be passed in with the `-d` tag:
