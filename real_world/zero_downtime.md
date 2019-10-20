@@ -214,3 +214,30 @@
 
   - Now let's go back to Chirp Development in the browser.  [http://icisstaff.localhost/chirp/patients?searchTerm=OBrien](http://icisstaff.localhost/chirp/patients?searchTerm=OBrien) We're still not getting the result from "OBrien".  This is because our ruby code is still only using the `query_string` method to search.  Let's fix that.
 
+  - Go into the file __app/es/patient.rb__ and add the following method:
+
+    ```ruby
+    def self.query_string(expanded_term)
+      {
+        bool: {
+          should: [
+            {
+              query_string: {
+                query: expanded_term
+              }
+            },
+            {
+              match_phrase: {
+                first_name: expanded_term
+              }
+            },
+            {
+              match_phrase: {
+                last_name: expanded_term
+              }
+            }
+          ]
+        }
+      }
+    end
+    ```
