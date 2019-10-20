@@ -5,3 +5,4 @@
 - In our staging app, the main example is "Conan O'Brien".
 - A user has to rembember the apostrophe.
 
+    ![a user enters the last name O'Brien and includes the apostrophe in the search bar](../images/search_with_apostrophe.gif)
