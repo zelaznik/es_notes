@@ -71,4 +71,142 @@
   - Now open up Chirp's development environment in your browser.  Check that the [patient search](http://icisstaff.localhost/chirp/patients?searchTerm=O%27Brien) still works as expected.  You should see exactly one search result, "Conan O'Brien".
   
 ### Create a new index with the new analyzer for the fields first_name and last_name.
-  - TO BE COMPLETED
+  - Here's the list of kibana commands:
+
+    ```
+    PUT patients_improved
+    {
+      "mappings": {
+        "patient": {
+          "properties": {
+            "first_name": {
+              "type": "text",
+              "analyzer": "alphanumeric_only", 
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "last_name": {
+              "type": "text",
+              "analyzer": "alphanumeric_only",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            }
+          }
+        }
+      },
+      "settings": {
+        "analysis": {
+          "analyzer": {
+            "alphanumeric_only": {
+              "filter": [
+                "lowercase"
+              ],
+              "char_filter": [
+                "remove_special_chars"
+              ],
+              "type": "custom",
+              "tokenizer": "standard"
+            }
+          },
+          "char_filter": {
+            "remove_special_chars": {
+              "type": "pattern_replace",
+              "pattern": "[^a-zA-Z \t]",
+              "replacement": ""
+            }
+          }
+        }
+      }
+    }
+
+    POST _reindex
+    {
+      "source": {
+        "index": "patients_development"
+      },
+      "dest": {
+        "index": "patients_improved"
+      }
+    }
+
+    GET patients_improved/_search
+    {
+      "query": {
+        "query_string": {
+          "query": "OBrien"
+        }
+      }
+    }
+
+    GET patients_improved/_search
+    {
+      "_source": [
+        "first_name",
+        "last_name",
+        "email",
+        "guid"
+      ],
+      "query": {
+        "match_phrase": {
+          "last_name": "OBrien"
+        }
+      }
+    }
+
+    GET patients_improved/_search
+    {
+      "_source": [
+        "first_name",
+        "last_name",
+        "email",
+        "guid"
+      ],
+      "query": {
+        "bool": {
+          "should": [
+            {
+              "query_string": {
+                "query": "OBrien"
+              }
+            },
+            {
+              "match_phrase": {
+                "first_name": "OBrien"
+              }
+            },
+            {
+              "match_phrase": {
+                "last_name": "OBrien"
+              }
+            }
+          ]
+        }
+      }
+    }
+
+    POST _aliases
+    {
+      "actions": [
+        {
+          "add": {
+            "alias": "patients_alias",
+            "index": "patients_improved"
+          }
+        },
+        {
+          "remove": {
+            "alias": "patients_alias",
+            "index": "patients_development"
+          }
+        }
+      ]
+    }
+    ```
