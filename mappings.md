@@ -154,31 +154,31 @@
 
   - Now we can add the second document.
   
-  ```
-  PUT index-5/doc/2
-  {
-    "created_at": "2019-01-01"
-  }
-  ```
+    ```
+    PUT index-5/doc/2
+    {
+      "created_at": "2019-01-01"
+    }
+    ```
 
-  <details>
-  <summary>Elasticsearch acknowledges that the record was created (below)</summary>
-  <p>
-    
-  ```json
-  {
-    "_index": "index-5",
-    "_type": "doc",
-    "_id": "2",
-    "_version": 3,
-    "result": "created",
-    "_shards": {
-      "total": 2,
-      "successful": 1,
-      "failed": 0
-    },
-    "created": true
-  }
-  ```
-  </p>
-  </details>
+    <details>
+    <summary>Elasticsearch acknowledges that the record was created (below)</summary>
+    <p>
+
+    ```json
+    {
+      "_index": "index-5",
+      "_type": "doc",
+      "_id": "2",
+      "_version": 3,
+      "result": "created",
+      "_shards": {
+        "total": 2,
+        "successful": 1,
+        "failed": 0
+      },
+      "created": true
+    }
+    ```
+    </p>
+    </details>
