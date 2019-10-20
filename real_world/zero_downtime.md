@@ -8,3 +8,42 @@
   - Copy all the data from the old index into the new one
   - Update the alias to point to the new index
   - Delete the old index
+
+### Create an alias that points to the old index
+  - Enter the following command in kibana:
+
+    ```
+    POST _aliases
+    {
+      "actions": [
+        {
+          "add": {
+            "alias": "patients_alias",
+            "index": "patients_development"
+          }
+        }
+      ]
+    }
+    ```
+
+  - Now edit the rails code on your development machine and apply this change:
+
+    ```diff
+    diff --git a/app/models/es/patient.rb b/app/models/es/patient.rb
+    index 1790765491..e29193ed85 100644
+    --- a/app/models/es/patient.rb
+    +++ b/app/models/es/patient.rb
+    @@ -38,6 +38,10 @@ module Es
+           "patients_#{Rails.env}"
+         end
+
+    +    def self.aliased_name
+    +      "patients_alias"
+    +    end
+    +
+         def self.document_type
+           'patient'
+         end
+    ```
+
+  - Now open up Chirp's development environment in your browser.  Check that the [patient search](http://icisstaff.localhost/chirp/patients?searchTerm=O%27Brien) still works as expected.  You should see exactly one search result, "Conan O'Brien".  I've included a link that still 
