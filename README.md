@@ -19,6 +19,6 @@
 
 ## Exercises:
   - [Document Rest API's](our_first_index.md)
-  - [Mappings](mappings.md)
   - [Basic Query DSL Syntax](query_syntax.md)
+  - [Mappings](mappings.md)
   - [Analyzers/Tokenizers](analyzers.md)
