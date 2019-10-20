@@ -245,4 +245,115 @@
     </details>
 
   - To get around this problem, the text fields are stored twice.  The first way, the "text" field, has the string broken into tokens, indexed and and analyzed.  The second copy, the "keyword" field, stores the original text.  When searching the "keyword" field, it either matches or it doesn't.
-  - Almost only counts in horseshoes and hand grenades.
+  
+  - To sort by __first_name__ and __last_name__, we need to add the `.keyword` suffix to our original query:
+
+  ```
+  GET index-2/_search
+  {
+    "query": {
+      "query_string": {
+        "query": "*"
+      }
+    },
+    "sort": [
+      "last_name.keyword",
+      "first_name.keyword"
+    ]
+  }
+  ```
+  
+  <details>
+  <summary>Now all of the results are sorted properly (below)</summary>
+  
+  <p>
+
+  ```json
+  {
+    "took": 4,
+    "timed_out": false,
+    "_shards": {
+      "total": 5,
+      "successful": 5,
+      "failed": 0
+    },
+    "hits": {
+      "total": 5,
+      "max_score": null,
+      "hits": [
+        {
+          "_index": "index-2",
+          "_type": "doc",
+          "_id": "5",
+          "_score": null,
+          "_source": {
+            "first_name": "Conan",
+            "last_name": "O'Brien"
+          },
+          "sort": [
+            "O'Brien",
+            "Conan"
+          ]
+        },
+        {
+          "_index": "index-2",
+          "_type": "doc",
+          "_id": "3",
+          "_score": null,
+          "_source": {
+            "first_name": "Andrew",
+            "last_name": "Young"
+          },
+          "sort": [
+            "Young",
+            "Andrew"
+          ]
+        },
+        {
+          "_index": "index-2",
+          "_type": "doc",
+          "_id": "1",
+          "_score": null,
+          "_source": {
+            "first_name": "Becky",
+            "last_name": "Young"
+          },
+          "sort": [
+            "Young",
+            "Becky"
+          ]
+        },
+        {
+          "_index": "index-2",
+          "_type": "doc",
+          "_id": "4",
+          "_score": null,
+          "_source": {
+            "first_name": "Andrew",
+            "last_name": "Zimmerman"
+          },
+          "sort": [
+            "Zimmerman",
+            "Andrew"
+          ]
+        },
+        {
+          "_index": "index-2",
+          "_type": "doc",
+          "_id": "2",
+          "_score": null,
+          "_source": {
+            "first_name": "Becky",
+            "last_name": "Zimmerman"
+          },
+          "sort": [
+            "Zimmerman",
+            "Becky"
+          ]
+        }
+      ]
+    }
+  }
+  ```
+  </p>
+  </details>
