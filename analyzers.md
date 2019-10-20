@@ -84,63 +84,61 @@
 ## Custom Analyser
  - Later in the exercise we're going to want to modify Chirp so that users don't have to type apostrophes and other special characters when searching for patients.  In order to do that, we need to build a custom analyzer.  Let's do that here.  I'm skpping a lot of steps with this next command, but I'll try to explain them all.
 
-  ```
-  PUT index-3
-  {
-    "analysis": {
-      "analyzer": {
-        "alphanumeric_only": {
-          "filter": [
-            "lowercase"
-          ],
-          "char_filter": [
-            "remove_special_chars"
-          ],
-          "type": "custom",
-          "tokenizer": "standard"
-        }
-      },
-      "char_filter": {
-        "remove_special_chars": {
-          "type": "pattern_replace",
-          "pattern": "[^a-zA-Z \t]",
-          "replacement": ""
+    ```
+    PUT index-3
+    {
+      "analysis": {
+        "analyzer": {
+          "alphanumeric_only": {
+            "filter": [
+              "lowercase"
+            ],
+            "char_filter": [
+              "remove_special_chars"
+            ],
+            "type": "custom",
+            "tokenizer": "standard"
+          }
+        },
+        "char_filter": {
+          "remove_special_chars": {
+            "type": "pattern_replace",
+            "pattern": "[^a-zA-Z \t]",
+            "replacement": ""
+          }
         }
       }
     }
-  }
-  ```
+    ```
 
   - A custom analyzer very much feels like functional programming.  We're daisy chaining a series of immutable functions together.  First we filter the text string.  Then we run an ordered array of character filters.  Then we tokenize them.  In this case, all we want to do is remove anything that's not alpha numeric.  It's important that we preserve the spaces so that multiple words can be broken into multiple tokens.  Now the important thing is to check our work.
 
   - Because we added this custom analyzer `alphanumeric_only` to the index `index-3`, we'll use that endpoint to check our work.
   
-   ```
-   POST index-3/_analyze
-   {
-     "text": "O'Brien",
-     "analyzer": "alphanumeric_only"
-   }
-   ```
-   
-   <details>
-    <summary>Notice the token (below) is lowercase and ignores the apostrophe.</summary>
-    <p>
-      
-    ```json
+    ```
+    POST index-3/_analyze
     {
-      "tokens": [
-        {
-          "token": "obrien",
-          "start_offset": 0,
-          "end_offset": 7,
-          "type": "<ALPHANUM>",
-          "position": 0
-        }
-      ]
+      "text": "O'Brien",
+      "analyzer": "alphanumeric_only"
     }
     ```
-    </p>
-   </details>
+   
+    <details>
+      <summary>Notice the token (below) is lowercase and ignores the apostrophe.</summary>
+      <p>
 
- 
+      ```json
+      {
+        "tokens": [
+          {
+            "token": "obrien",
+            "start_offset": 0,
+            "end_offset": 7,
+            "type": "<ALPHANUM>",
+            "position": 0
+          }
+        ]
+      }
+      ```
+      </p>
+    </details>
