@@ -210,3 +210,7 @@
       ]
     }
     ```
+
+
+  - Now let's go back to Chirp Development in the browser.  [http://icisstaff.localhost/chirp/patients?searchTerm=OBrien](http://icisstaff.localhost/chirp/patients?searchTerm=OBrien) We're still not getting the result from "OBrien".  This is because our ruby code is still only using the `query_string` method to search.  Let's fix that.
+
