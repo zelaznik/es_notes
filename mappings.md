@@ -98,12 +98,12 @@
   
   - Now let's create a new index, and add the same documents, but in the opposite order.
 
-  ```
-  PUT index-5/doc/1
-  {
-    "created_at": "hello, world"
-  }
-  ```
+    ```
+    PUT index-5/doc/1
+    {
+      "created_at": "hello, world"
+    }
+    ```
 
   - Before adding the second document, let's look at the index mapping
 
