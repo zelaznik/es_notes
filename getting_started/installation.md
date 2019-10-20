@@ -75,7 +75,7 @@ $ curl -s localhost:9211
  - Open [http://localhost:5611/app/kibana#/dev_tools/console?_g=()](http://localhost:5611/app/kibana#/dev_tools/console?_g=%28%29) in your browser
  - Hit the green "play" triangle.  The output should look like this
 
-![Kibana Blank Console](images/kibana_blank_console.gif)
+![Kibana Blank Console](../images/kibana_blank_console.gif)
 
 ### Seed Elasticsearch With Chirp Development Data
   - Switch to the chirp directory
@@ -105,7 +105,7 @@ $ curl -s localhost:9211
    GET _cat/indices?v
    ```
 
-![all the new indices are listed in tabular form](images/kibana_seeded_data.gif)
+![all the new indices are listed in tabular form](../images/kibana_seeded_data.gif)
 
 
 # Tearing Down Everything
