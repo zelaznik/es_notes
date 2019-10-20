@@ -197,7 +197,47 @@
         }
       }
     }
+    ```
+    
+    <details>
+    <summary>This response (below) gives us the one search result we want.</summary>
+    <p>
 
+    ```json
+    {
+      "took": 1,
+      "timed_out": false,
+      "_shards": {
+        "total": 5,
+        "successful": 5,
+        "failed": 0
+      },
+      "hits": {
+        "total": 1,
+        "max_score": 8.352037,
+        "hits": [
+          {
+            "_index": "patients_improved",
+            "_type": "patient",
+            "_id": "625",
+            "_score": 8.352037,
+            "_source": {
+              "guid": "ae4cda2170d22e599a87bc8d33de40f0",
+              "last_name": "O'Brien",
+              "first_name": "Conan",
+              "email": "conan@example.com"
+            }
+          }
+        ]
+      }
+    }
+    ```
+    </p>
+    </details>
+
+    In a moment we're going to need to combine the __query_string__ and the __match_phrase__ methods in our Rails code, but in the meantime, this is how to check your work in kibana:
+
+    ```
     GET patients_improved/_search
     {
       "_source": [
@@ -228,6 +268,7 @@
         }
       }
     }
+    ```
 
     POST _aliases
     {
