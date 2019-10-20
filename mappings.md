@@ -190,56 +190,56 @@
   - Let's go back to our "index-2" field that we created in an earlier lesson.
   - We're going to send elasticsearch a query that will throw an error
 
-  ```
-  GET index-2/_search
-  {
-    "query": {
-      "query_string": {
-        "query": "*"
-      }
-    },
-    "sort": [
-      "last_name",
-      "first_name"
-    ]
-  }
-  ```
-
-  <details>
-  <summary>Because __last_name__ and __first_name__ are full text fields, that means that all the tokens have to be reassembled in order to sort on them.  This is computationally expensive as is explained in the error (below).</summary>
-  <p>
-
-  ```json
-  {
-    "error": {
-      "root_cause": [
-        {
-          "type": "illegal_argument_exception",
-          "reason": "Fielddata is disabled on text fields by default. Set fielddata=true on [last_name] in order to load fielddata in memory by uninverting the inverted index. Note that this can however use significant memory."
+    ```
+    GET index-2/_search
+    {
+      "query": {
+        "query_string": {
+          "query": "*"
         }
-      ],
-      "type": "search_phase_execution_exception",
-      "reason": "all shards failed",
-      "phase": "query",
-      "grouped": true,
-      "failed_shards": [
-        {
-          "shard": 0,
-          "index": "index-2",
-          "node": "UluhRfZ7TCyCVTbPRqIaSA",
-          "reason": {
+      },
+      "sort": [
+        "last_name",
+        "first_name"
+      ]
+    }
+    ```
+
+    <details>
+    <summary>Because __last_name__ and __first_name__ are full text fields, that means that all the tokens have to be reassembled in order to sort on them.  This is computationally expensive as is explained in the error (below).</summary>
+    <p>
+
+    ```json
+    {
+      "error": {
+        "root_cause": [
+          {
             "type": "illegal_argument_exception",
             "reason": "Fielddata is disabled on text fields by default. Set fielddata=true on [last_name] in order to load fielddata in memory by uninverting the inverted index. Note that this can however use significant memory."
           }
+        ],
+        "type": "search_phase_execution_exception",
+        "reason": "all shards failed",
+        "phase": "query",
+        "grouped": true,
+        "failed_shards": [
+          {
+            "shard": 0,
+            "index": "index-2",
+            "node": "UluhRfZ7TCyCVTbPRqIaSA",
+            "reason": {
+              "type": "illegal_argument_exception",
+              "reason": "Fielddata is disabled on text fields by default. Set fielddata=true on [last_name] in order to load fielddata in memory by uninverting the inverted index. Note that this can however use significant memory."
+            }
+          }
+        ],
+        "caused_by": {
+          "type": "illegal_argument_exception",
+          "reason": "Fielddata is disabled on text fields by default. Set fielddata=true on [last_name] in order to load fielddata in memory by uninverting the inverted index. Note that this can however use significant memory."
         }
-      ],
-      "caused_by": {
-        "type": "illegal_argument_exception",
-        "reason": "Fielddata is disabled on text fields by default. Set fielddata=true on [last_name] in order to load fielddata in memory by uninverting the inverted index. Note that this can however use significant memory."
-      }
-    },
-    "status": 400
-  }
-  ```
-  </p>
-  </details>
+      },
+      "status": 400
+    }
+    ```
+    </p>
+    </details>
