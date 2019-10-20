@@ -4,7 +4,7 @@
 
   - [Create an alias that points to the old index](#create-an-alias-that-points-to-the-old-index)
   - [Update the code in Rails to point to the alias](#update-the-code-in-rails-to-point-to-the-alias)
-  - Create a new index with the new analyzer for the fields __first_name__ and __last_name__.
+  - [Create a new index with the new analyzer for the fields __first_name__ and __last_name__](#create-a-new-index-with-the-new-analyzer-for-the-fields-first_name-and-last_name).
   - Copy all the data from the old index into the new one
   - Update the alias to point to the new index
   - Delete the old index
