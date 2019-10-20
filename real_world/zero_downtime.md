@@ -26,7 +26,9 @@
     }
     ```
 
-  - Now edit the rails code on your development machine and apply this change:
+## Update the code in Rails to point to the alias
+
+  - Open the code on your development machine and apply this change:
 
     ```diff
     diff --git a/app/models/es/patient.rb b/app/models/es/patient.rb
