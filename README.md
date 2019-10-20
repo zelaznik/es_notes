@@ -26,3 +26,4 @@
 ## Real World Example:
   - [Ignore Puncuation In Patient Search](real_world/summary.md)
   - [Setting Up Your Development Environment](real_world/setup.md)
+  - [Zero Downtime Patterns](real_world/zero_downtime.md)
