@@ -39,3 +39,5 @@
   ```sh
   ELASTICSEARCH_URL='localhost:9211' bin/rake es:index_patients
   ```
+  
+- Finally, make sure also to start `snowflake` and `feature_toggles` locally.
