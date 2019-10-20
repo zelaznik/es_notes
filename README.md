@@ -24,4 +24,4 @@
   - [Analyzers/Tokenizers](analyzers.md)
   
 ## Real World Chirp Examples:
-  - [Improve Chirp Patient Search](improve_chirp_patient_search.md)
+  - [Ignore Puncuation In Patient Search](ignore_punctuation_in_patient_search.md)
