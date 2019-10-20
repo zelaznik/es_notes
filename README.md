@@ -23,5 +23,6 @@
   - [Mappings](basic_exercises/mappings.md)
   - [Analyzers/Tokenizers](basic_exercises/analyzers.md)
 
-## Real World Example: Ignore Special Characters in Patient Search
-  - [Ignore Puncuation In Patient Search](ignore_punctuation_in_patient_search.md)
+## Real World Example:
+  - [Ignore Puncuation In Patient Search](real_world/summary.md)
+  - [Setting Up Your Development Environment](real_world/setup.md)
