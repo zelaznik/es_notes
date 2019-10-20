@@ -126,7 +126,13 @@
         }
       }
     }
+    ```
 
+### Copy all the data from the old index into the new one
+
+  - Let's go back to Kibana:
+
+    ```
     POST _reindex
     {
       "source": {
@@ -136,7 +142,11 @@
         "index": "patients_improved"
       }
     }
+    ```
 
+    The `_reindex` method allows us to copy data from the one index to another.  This does not change the mapping of the destination index.  All the first and last names will now be analyzed with our special `alphanumeric_only` analyzer.  Unfortunately this new analyzer doesn't affect the `query_string` parameter.  Let's try searching for *OBrien* without an apostrophe.
+
+    ```
     GET patients_improved/_search
     {
       "query": {
@@ -145,7 +155,34 @@
         }
       }
     }
+    ```
+    
+    <details>
+      <summary>If you see the results (below), nothing matches</summary>
+      <p>
+      
+      ```json
+      {
+        "took": 1,
+        "timed_out": false,
+        "_shards": {
+          "total": 5,
+          "successful": 5,
+          "failed": 0
+        },
+        "hits": {
+          "total": 0,
+          "max_score": null,
+          "hits": []
+        }
+      }
+      ```
+      </p>
+    </details>
+    
+    The `query_string` method uses a computed field called [\_all](https://www.elastic.co/guide/en/elasticsearch/reference/5.1/mapping-all-field.html).  If there's a way to use a custom analyser on the __\_all__ field, I haven't found it yet.  It doesn't seem like this field was built to be customized.  Because of this, we're going to need to use a different method.  Let's try a __match_phrase__ query:
 
+    ```
     GET patients_improved/_search
     {
       "_source": [
