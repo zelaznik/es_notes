@@ -243,3 +243,6 @@
     ```
     </p>
     </details>
+
+  - To get around this problem, the text fields are stored twice.  The first way, the "text" field, has the string broken into tokens, indexed and and analyzed.  The second copy, the "keyword" field, stores the original text.  When searching the "keyword" field, it either matches or it doesn't.
+  - Almost only counts in horseshoes and hand grenades.
