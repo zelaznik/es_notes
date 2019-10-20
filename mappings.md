@@ -107,13 +107,13 @@
 
   - Before adding the second document, let's look at the index mapping
 
-  ```
-  GET index-5
-  ```
+    ```
+    GET index-5
+    ```
 
-  <details>
-  <summary>Notice that the mapping (below) has "created_at" as type "text".  (We'll get to the "fields" property in a moment.)</summary>
-  <p>
+    <details>
+      <summary>Notice that the mapping (below) has "created_at" as type "text".  (We'll get to the "fields" property in a moment.)</summary>
+      <p>
     
     ```json
     {
