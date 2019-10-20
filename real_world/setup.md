@@ -1,23 +1,23 @@
 # Setting Up Your Environment
 
-- We're going to do this live coding session in your development environment.  Checkout the `md-es5` branch from chirp.  We need to use this branch because today's Chirp-Ed uses Elasticsearch-5, which has breaking changes.  This git branch deals with those breaking changes.
+- We're going to do this live coding session in your development environment.  Checkout the `zel-chirp-ed-elasticsearch` branch from chirp.  We need to use this branch because today's Chirp-Ed uses Elasticsearch-5, which has breaking changes.  This git branch deals with those breaking changes.
 
   ```sh
   $ cd ~/src/icisstaff/
   ~/src/icisstaff(master)
-  $ git branch -D md-es5 2>/dev/null
+  $ git branch -D zel-chirp-ed-elasticsearch 2>/dev/null
   ~/src/icisstaff(master)
   $ git fetch
   ~/src/icisstaff(master)
-  $ git checkout -t origin/md-es5
-  Branch 'md-es5' set up to track remote branch 'md-es5' from 'origin'.
-  Switched to a new branch 'md-es5'
+  $ git checkout -t origin/zel-chirp-ed-elasticsearch
+  Branch 'zel-chirp-ed-elasticsearch' set up to track remote branch 'zel-chirp-ed-elasticsearch' from 'origin'.
+  Switched to a new branch 'zel-chirp-ed-elasticsearch'
   ```
 
 - Now we want to start up the chirp app, but we want to point Rails to the the version of elasticsearch we've spun up for Chirp-Ed.  We set an environment variable `ELASTICSEARCH_URL='localhost:9211'`.
 
   ```sh
-  ~/src/icisstaff(md-es5)
+  ~/src/icisstaff(zel-chirp-ed-elasticsearch)
   $ ELASTICSEARCH_URL='localhost:9211' foreman start
   05:04:12 staff.1  | started with pid 4792
   05:04:12 gulp.1   | started with pid 4793
