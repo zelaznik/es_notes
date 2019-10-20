@@ -206,7 +206,7 @@
     ```
 
     <details>
-    <summary>Because __last_name__ and __first_name__ are full text fields, that means that all the tokens have to be reassembled in order to sort on them.  This is computationally expensive as is explained in the error (below).</summary>
+    <summary>Because <b>last_name</b> and <b>first_name</b> are full text fields, that means that all the tokens have to be reassembled in order to sort on them.  This is computationally expensive as is explained in the error (below).</summary>
     <p>
 
     ```json
