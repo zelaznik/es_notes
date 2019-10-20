@@ -66,4 +66,5 @@
     DIFF
     ```
 
-  - Now open up Chirp's development environment in your browser.  Check that the [patient search](http://icisstaff.localhost/chirp/patients?searchTerm=O%27Brien) still works as expected.  You should see exactly one search result, "Conan O'Brien".  I've included a link that still 
+  - Now open up Chirp's development environment in your browser.  Check that the [patient search](http://icisstaff.localhost/chirp/patients?searchTerm=O%27Brien) still works as expected.  You should see exactly one search result, "Conan O'Brien".
+  
