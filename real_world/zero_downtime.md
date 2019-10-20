@@ -70,3 +70,5 @@
 
   - Now open up Chirp's development environment in your browser.  Check that the [patient search](http://icisstaff.localhost/chirp/patients?searchTerm=O%27Brien) still works as expected.  You should see exactly one search result, "Conan O'Brien".
   
+### Create a new index with the new analyzer for the fields first_name and last_name.
+  - TO BE COMPLETED
