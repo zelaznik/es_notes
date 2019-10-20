@@ -46,4 +46,24 @@
          end
     ```
 
+  - Or you can run this command in the `~/src/icisstaff` directory.
+
+    ```sh
+    git apply <<-DIFF
+    --- a/app/models/es/patient.rb
+    +++ b/app/models/es/patient.rb
+    @@ -38,6 +38,10 @@ module Es
+           "patients_#{Rails.env}"
+         end
+
+    +    def self.aliased_name
+    +      "patients_alias"
+    +    end
+    +
+         def self.document_type
+           'patient'
+         end
+    DIFF
+    ```
+
   - Now open up Chirp's development environment in your browser.  Check that the [patient search](http://icisstaff.localhost/chirp/patients?searchTerm=O%27Brien) still works as expected.  You should see exactly one search result, "Conan O'Brien".  I've included a link that still 
