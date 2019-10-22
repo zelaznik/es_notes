@@ -180,3 +180,5 @@
 
 - Notice that "index-1" didn't even exist before this exercise.  It was generated in real time.
 - This is flexible, but it makes elasticsearch vulnerable to typos.  If I misspell the name of the index, elasticsearch will simply create a new index and never return an error to me.
+
+### Up Next [Basic Query DSL Syntax](query_syntax.md)
