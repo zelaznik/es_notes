@@ -357,3 +357,5 @@
     ```
     </p>
     </details>
+
+### Up Next [Analyzers/Tokenizers](analyzers.md)
