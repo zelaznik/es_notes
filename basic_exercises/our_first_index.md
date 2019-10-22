@@ -11,7 +11,7 @@
 
 - In the Kibana Conole, let's execute the following command:
 
-  ```
+  ```json
   POST index-1/doc?refresh=true
   {
     "first_name": "Andrew",
@@ -45,7 +45,7 @@
 
 - In the example above we let elasticsearch pick the ID for us.  We can also choose our own unique identifier.  We do this in Chirp, 
 
-  ```
+  ```json
   PUT index-1/doc/2718
   {
     "first_name": "Leonhard",
@@ -85,7 +85,7 @@
 
 - In the Kibana Conole, let's execute the following command:
 
-  ```
+  ```json
   POST index-1/doc/2718/_update?pretty
   {
     "doc": {
@@ -119,7 +119,7 @@
 
 - This only works with the ___update__ endpoint.  If we use the __PUT__ request, we'll end up overwriting the entire document.  Let's try it:
 
-  ```
+  ```json
   PUT index-1/doc/2718?pretty
   {
     "doc": {
