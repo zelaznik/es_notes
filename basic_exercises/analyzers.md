@@ -14,7 +14,7 @@
   ```
   POST _analyze
   {
-    "text": "The quick brown fox jumped over the lazy dogs."
+    "text": "The quick brown fox jumped over the lazy dogs.",
     "analyzer": "english"
   }
   ```
