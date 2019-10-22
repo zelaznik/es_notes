@@ -1,7 +1,7 @@
 # Our First Elasticsearch Index
 
 ## Main takeaways from this exercise.
-  - Elasticserch is dynamic.
+  - Elasticsearch is dynamic.
   - Indices and field types are by default computed just in time
 
 ## Warning:
