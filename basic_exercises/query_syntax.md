@@ -330,4 +330,4 @@
 
 - Go to the tasks, admissions, or patients pages in Chirp staging or development.  Try to build queries in elasticsearch that give you equivalent results.  Time permitting, we'll do that live here in Chirp-Ed.
 
-### Up Next [Mappings](mappings.md)
+Up Next [Mappings](mappings.md)

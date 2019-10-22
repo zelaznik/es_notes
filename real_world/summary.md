@@ -7,4 +7,4 @@
 
     ![a user enters the last name O'Brien and includes the apostrophe in the search bar](../images/search_with_apostrophe.gif)
 
-### Up Next [Setting Up Your Development Environment](setup.md)
+Up Next [Setting Up Your Development Environment](setup.md)

@@ -100,4 +100,4 @@
      @status=200>
     ```
 
-### Up Next [Learning Resources](resources.md)
+Up Next [Learning Resources](resources.md)

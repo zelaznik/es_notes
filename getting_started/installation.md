@@ -146,4 +146,4 @@ $ curl -s localhost:9211
   es_notes_elasticsearch-chirp-ed-logs
   ```
 
-### Up Next [Interacting With Elasticsearch](interactions.md)
+Up Next [Interacting With Elasticsearch](interactions.md)

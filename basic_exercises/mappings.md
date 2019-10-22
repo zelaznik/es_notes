@@ -358,4 +358,4 @@
     </p>
     </details>
 
-### Up Next [Analyzers/Tokenizers](analyzers.md)
+Up Next [Analyzers/Tokenizers](analyzers.md)
