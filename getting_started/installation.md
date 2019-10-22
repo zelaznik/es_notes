@@ -145,3 +145,5 @@ $ curl -s localhost:9211
   $ docker volume rm es_notes_elasticsearch-chirp-ed-logs
   es_notes_elasticsearch-chirp-ed-logs
   ```
+
+### Up Next [Interacting With Elasticsearch](interactions.md)
