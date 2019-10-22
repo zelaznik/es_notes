@@ -145,3 +145,5 @@
       ```
       </p>
     </details>
+
+Up Next [Real World Example](../real_world/summary.md)
