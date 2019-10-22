@@ -81,6 +81,9 @@
     </p>
   </details>
 
+## More Analyzers:
+  - I point you to the [documentation](https://www.elastic.co/guide/en/elasticsearch/reference/5.1/analysis-analyzers.html)
+
 ## Custom Analyser
  - Later in the exercise we're going to want to modify Chirp so that users don't have to type apostrophes and other special characters when searching for patients.  In order to do that, we need to build a custom analyzer.  Let's do that here.  I'm skpping a lot of steps with this next command, but I'll try to explain them all.
 
