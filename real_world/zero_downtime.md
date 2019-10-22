@@ -325,7 +325,7 @@
     
     We can also run the following shell command:
 
-    ```sh
+    ```diff
     git apply <<-DIFF
     --- a/app/models/es/patient.rb
     +++ b/app/models/es/patient.rb
