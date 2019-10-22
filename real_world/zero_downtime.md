@@ -322,5 +322,45 @@
       }
     end
     ```
+    
+    We can also run the following shell command:
+
+    ```sh
+    git apply <<-DIFF
+    --- a/app/models/es/patient.rb
+    +++ b/app/models/es/patient.rb
+    @@ -42,6 +42,30 @@ module Es
+           'patient'
+         end
+
+    +    def self.query_string(expanded_term)
+    +      {
+    +        bool: {
+    +          should: [
+    +            {
+    +              query_string: {
+    +                query: expanded_term
+    +              }
+    +            },
+    +            {
+    +              match_phrase: {
+    +                first_name: expanded_term
+    +              }
+    +            },
+    +            {
+    +              match_phrase: {
+    +                last_name: expanded_term
+    +              }
+    +            }
+    +          ]
+    +        }
+    +      }
+    +    end
+    +
+         def self.fuzzy_name_search(names={}, options={})
+           name_matchers = names.keys.map do |key|
+             {
+    DIFF
+    ```
 
     We want to add the "match_phrase" queries when the user is typing content into the search bar.  At the same time we don't want to lose any of the old functionality that the user expects.  The only option is to use a "should" construction, which is the same as an "OR" construction.  The old query_string is wrapped in a `{ bool: { should: { ... } }` object, and we add the `match_phrase` query for first and last names.
