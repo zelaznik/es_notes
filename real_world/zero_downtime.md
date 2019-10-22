@@ -269,7 +269,10 @@
       }
     }
     ```
-
+    
+    Now we need to redirect the alias from the old index, `patients_development`, to the new one, `patients_improved`.
+    
+    ```
     POST _aliases
     {
       "actions": [
