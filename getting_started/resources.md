@@ -15,3 +15,5 @@
   - [ElasticSearch in action - Thijs Feryn](https://www.youtube.com/watch?v=oPObRc8tHgQ)
     - Dense with information.  I've watched this video several times as my ES knowledge has deepened.
     - (There's one unnecessary, cringeworthy slide in this presentation 11 minutes in.  The rest of the presentation was informative enough that I'm including the video here despite it.)
+
+### Up Next [Basic Exercises](../readme.md#basic-exercises)
